@@ -6,7 +6,7 @@
 // Sets default values
 AAgapitoCharacter::AAgapitoCharacter()
 {
-	GetCapsuleComponent()->InitCapsuleSize(10.0f, 10.0f);
+	GetCapsuleComponent()->InitCapsuleSize(100.0f, 100.0f);
 	PrimaryActorTick.bCanEverTick = true;
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 
@@ -17,12 +17,12 @@ AAgapitoCharacter::AAgapitoCharacter()
 	
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 300.0f, 0.0f);
-	GetCharacterMovement()->MaxWalkSpeed = 200.0f;
+	GetCharacterMovement()->MaxWalkSpeed = 2000.0f;
 
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->AttachTo(RootComponent);
 	CameraBoom->bAbsoluteRotation = true;
-	CameraBoom->TargetArmLength = 200.0f;
+	CameraBoom->TargetArmLength = 2000.0f;
 	CameraBoom->RelativeRotation = FRotator(-60.f, 0.0f, 0.f);
 	CameraBoom->bDoCollisionTest = false;
 
@@ -57,12 +57,12 @@ void AAgapitoCharacter::SetupPlayerInputComponent(class UInputComponent* InputCo
 void AAgapitoCharacter::MoveXAxis(float AxisValue) {
 	FVector dir = FVector(FMath::Clamp(AxisValue, -1.0f, 1.0f),0.f,0.f);
 	// add movement in that direction
-	AddMovementInput(dir, 1.0f);
+	AddMovementInput(dir, 10.0f);
 }
 
 void AAgapitoCharacter::MoveYAxis(float AxisValue) {
 	FVector dir = FVector(0.f,FMath::Clamp(AxisValue, -1.0f, 1.0f), 0.f);
 	// add movement in that direction
-	AddMovementInput(dir, 1.0f);
+	AddMovementInput(dir, 10.0f);
 }
 
