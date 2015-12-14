@@ -22,16 +22,13 @@ AAgapitoCharacter::AAgapitoCharacter()
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->AttachTo(RootComponent);
 	CameraBoom->bAbsoluteRotation = true;
-	CameraBoom->TargetArmLength = 2000.0f;
+	CameraBoom->TargetArmLength = 1000.0f;
 	CameraBoom->RelativeRotation = FRotator(-60.f, 0.0f, 0.f);
 	CameraBoom->bDoCollisionTest = false;
 
 	TopDownCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("TopDownCamera"));
 	TopDownCameraComponent->AttachTo(CameraBoom, USpringArmComponent::SocketName);
 	TopDownCameraComponent->bUsePawnControlRotation = false;
-
-	//GetMesh()->SetRelativeRotation(FRotator(0.0f, -90.0f, 0.0f));
-	//GetMesh()->SetRelativeScale3D(FVector(10.0f));
 }
 
 // Called when the game starts or when spawned
